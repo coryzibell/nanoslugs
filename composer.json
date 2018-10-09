@@ -1,5 +1,5 @@
 {
-    "name": "madhouse/slugger",
+    "name": "coryzibell/nanoslugs",
     "description": "Hashes the Id of an entry when it is saved and replaces the slug.",
     "type": "craft-plugin",
     "keywords": [
@@ -7,13 +7,13 @@
         "cms",
         "craftcms",
         "craft-plugin",
-        "slugger"
+        "nanoslugs"
     ],
     "license": "MIT",
     "authors": [
         {
-            "name": "Madhouse",
-            "homepage": "https://madmadmad.com"
+            "name": "Cory Zibell",
+            "homepage": "https://coryzibell.com"
         }
     ],
     "require": {
@@ -22,18 +22,18 @@
     },
     "autoload": {
         "psr-4": {
-          "madhouse\\slugger\\": "src/"
+          "coryzibell\\nanoslugs\\": "src/"
         }
     },
     "extra": {
-        "name": "Slugger",
-        "handle": "slugger",
+        "name": "Nanoslugs",
+        "handle": "nanoslugs",
         "hasCpSettings": true,
         "hasCpSection": false,
-        "changelogUrl": "https://raw.githubusercontent.com/madmadmad/slugger/master/CHANGELOG.md",
+        "changelogUrl": "https://raw.githubusercontent.com/coryzibell/nanoslugs/master/CHANGELOG.md",
         "components": {
-            "sluggerService": "madhouse\\slugger\\services\\SluggerService"
+            "nanoslugsService": "coryzibell\\nanoslugs\\services\\NanoslugsService"
         },
-        "class": "madhouse\\slugger\\Slugger"
+        "class": "coryzibell\\nanoslugs\\Nanoslugs"
     }
 }

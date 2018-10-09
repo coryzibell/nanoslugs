@@ -1,23 +1,23 @@
 <?php
 /**
- * Slugger plugin for Craft CMS 3.x
+ * Nanoslugs plugin for Craft CMS 3.x
  *
  * Hashes the Id of an entry when it is saved and replaces the slug.
  *
- * @link      https://madmadmad.com
- * @copyright Copyright (c) 2018 Madhouse
+ * @link      https://coryzibell.com
+ * @copyright Copyright (c) 2018 Cory Zibell
  */
 
-namespace madhouse\slugger\models;
+namespace coryzibell\nanoslugs\models;
 
-use madhouse\slugger\Slugger;
+use coryzibell\nanoslugs\Nanoslugs;
 
 use Craft;
 use craft\base\Model;
 
 /**
- * @author    Madhouse
- * @package   Slugger
+ * @author    Cory Zibell
+ * @package   Nanoslugs
  * @since     1.0.0
  */
 class Settings extends Model

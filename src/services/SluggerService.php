@@ -1,26 +1,26 @@
 <?php
 /**
- * Slugger plugin for Craft CMS 3.x
+ * Nanoslugs plugin for Craft CMS 3.x
  *
  * Hashes the Id of an entry when it is saved and replaces the slug.
  *
- * @link      madmadmad.com
- * @copyright Copyright (c) 2018 Madhouse
+ * @link      coryzibell.com
+ * @copyright Copyright (c) 2018 Cory Zibell
  */
 
-namespace madhouse\slugger\services;
+namespace coryzibell\nanoslugs\services;
 
-use madhouse\slugger\Slugger;
+use coryzibell\nanoslugs\Nanoslugs;
 
 use Craft;
 use craft\base\Component;
 
 /**
- * @author    Madhouse
- * @package   Slugger
+ * @author    Cory Zibell
+ * @package   Nanoslugs
  * @since     1.0.0
  */
-class SluggerService extends Component
+class NanoslugsService extends Component
 {
 
 	protected $length;
@@ -30,16 +30,16 @@ class SluggerService extends Component
 
 	public function __construct()
 	{
-		$settings = Craft::$app->plugins->getPlugin('slugger')->getSettings();
-		
+		$settings = Craft::$app->plugins->getPlugin('nanoslugs')->getSettings();
+
 		$this->length = $settings['length'];
 		$this->salt = $settings['salt'];
 		$this->alphabet = $settings['alphabet'];
 
 		$this->encoder = new \Hashids\Hashids($this->salt, $this->length, $this->alphabet);
 	}
-	
-	
+
+
     /**
 	 * Encode the id and return it
 	 *
@@ -53,8 +53,8 @@ class SluggerService extends Component
 	 */
 	public function encodeById($id, $settings)
 	{
-		
-		if ( $settings['length'] ) 
+
+		if ( $settings['length'] )
 		{
 			$length = $settings['length'];
 			$this->encoder = new \Hashids\Hashids($this->salt, $length, $this->alphabet);

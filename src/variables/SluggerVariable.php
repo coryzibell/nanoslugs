@@ -1,32 +1,32 @@
 <?php
 /**
- * Slugger plugin for Craft CMS 3.x
+ * Nanoslugs plugin for Craft CMS 3.x
  *
  * Hashes the Id of an entry when it is saved and replaces the slug.
  *
- * @link      madmadmad.com
- * @copyright Copyright (c) 2018 Madhouse
+ * @link      coryzibell.com
+ * @copyright Copyright (c) 2018 Cory Zibell
  */
 
-namespace madhouse\slugger\variables;
+namespace coryzibell\nanoslugs\variables;
 
-use madhouse\slugger\Slugger;
+use coryzibell\nanoslugs\Nanoslugs;
 
 use Craft;
 
 /**
- * Slugger Variable
+ * Nanoslugs Variable
  *
  * Craft allows plugins to provide their own template variables, accessible from
- * the {{ craft }} global variable (e.g. {{ craft.slugger }}).
+ * the {{ craft }} global variable (e.g. {{ craft.nanoslugs }}).
  *
  * https://craftcms.com/docs/plugins/variables
  *
- * @author    Madhouse
- * @package   Slugger
+ * @author    Cory Zibell
+ * @package   Nanoslugs
  * @since     1.0.0
  */
-class SluggerVariable
+class NanoslugsVariable
 {
     // Public Methods
     // =========================================================================
@@ -36,17 +36,17 @@ class SluggerVariable
      * You can have as many variable functions as you want.  From any Twig template,
      * call it like this:
      *
-     *     {{ craft.slugger.exampleVariable }}
+     *     {{ craft.nanoslugs.exampleVariable }}
      *
      * Or, if your variable requires parameters from Twig:
      *
-     *     {{ craft.slugger.exampleVariable(twigValue) }}
+     *     {{ craft.nanoslugs.exampleVariable(twigValue) }}
      *
      * @param null $optional
      * @return string
      */
     public function decode($hash)
     {
-		return Slugger::$plugin->SluggerService->decode($hash);
+		return Nanoslugs::$plugin->NanoslugsService->decode($hash);
     }
 }

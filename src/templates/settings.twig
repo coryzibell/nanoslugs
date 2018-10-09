@@ -1,14 +1,14 @@
 {# @var craft \craft\web\twig\variables\CraftVariable #}
 {#
 /**
- * Slugger plugin for Craft CMS 3.x
+ * Nanoslugs plugin for Craft CMS 3.x
  *
- * Slugger Settings.twig
+ * Nanoslugs Settings.twig
  *
- * @author    Madhouse
- * @copyright Copyright (c) 2018 Madhouse
- * @link      madmadmad.com
- * @package   Slugger
+ * @author    Cory Zibell
+ * @copyright Copyright (c) 2018 Cory Zibell
+ * @link      coryzibell.com
+ * @package   Nanoslugs
  * @since     1.0.0
  */
 #}
@@ -17,7 +17,7 @@
 
 {% set sections = craft.app.sections.editableSections %}
 
-{% do view.registerAssetBundle("madhouse\\slugger\\assetbundles\\slugger\\SluggerAsset") %}
+{% do view.registerAssetBundle("coryzibell\\nanoslugs\\assetbundles\\nanoslugs\\NanoslugsAsset") %}
 
 {{ forms.textField({
     label: "Hash salt"|t,
@@ -63,19 +63,19 @@
 
 	{% for section in sections %}
 		{% if section.type != 'single' %}
-			<tr> 
+			<tr>
 				<td>{{ section.name }}</td>
 				<td>
 					{{ forms.text({
 						value: null,
 						name: 'sections['~ section.id ~ '][length]',
-						value: (settings.sections[section.id] is defined and settings.sections[section.id].length ? settings.sections[section.id].length : null) 
+						value: (settings.sections[section.id] is defined and settings.sections[section.id].length ? settings.sections[section.id].length : null)
 					}) }}
 				</td>
 				<td>
 					{{ forms.lightswitch({
 						name: 'sections['~ section.id ~ '][enabled]',
-						on:   (settings.sections[section.id].enabled is defined and settings.sections[section.id].enabled ? settings.sections[section.id].enabled : null) 
+						on:   (settings.sections[section.id].enabled is defined and settings.sections[section.id].enabled ? settings.sections[section.id].enabled : null)
 					}) }}
 				</td>
 			</tr>

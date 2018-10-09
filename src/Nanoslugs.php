@@ -4,7 +4,7 @@
  *
  * Uses nanoid to generate a slug for new entries
  *
- * @link      https://madmadmad.com
+ * @link      https://coryzibell.com
  * @copyright Copyright (c) 2018 Cory Zibell
  */
 

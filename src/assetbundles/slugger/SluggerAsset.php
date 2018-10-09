@@ -1,21 +1,21 @@
 <?php
 /**
- * Slugger plugin for Craft CMS 3.x
+ * Nanoslugs plugin for Craft CMS 3.x
  *
  * Hashes the Id of an entry when it is saved and replaces the slug.
  *
- * @link      madmadmad.com
- * @copyright Copyright (c) 2018 Madhouse
+ * @link      coryzibell.com
+ * @copyright Copyright (c) 2018 Cory Zibell
  */
 
-namespace madhouse\slugger\assetbundles\Slugger;
+namespace coryzibell\nanoslugs\assetbundles\Nanoslugs;
 
 use Craft;
 use craft\web\AssetBundle;
 use craft\web\assets\cp\CpAsset;
 
 /**
- * SluggerAsset AssetBundle
+ * NanoslugsAsset AssetBundle
  *
  * AssetBundle represents a collection of asset files, such as CSS, JS, images.
  *
@@ -28,11 +28,11 @@ use craft\web\assets\cp\CpAsset;
  *
  * http://www.yiiframework.com/doc-2.0/guide-structure-assets.html
  *
- * @author    Madhouse
- * @package   Slugger
+ * @author    Cory Zibell
+ * @package   Nanoslugs
  * @since     1.0.0
  */
-class SluggerAsset extends AssetBundle
+class NanoslugsAsset extends AssetBundle
 {
     // Public Methods
     // =========================================================================
@@ -43,7 +43,7 @@ class SluggerAsset extends AssetBundle
     public function init()
     {
         // define the path that your publishable resources live
-        $this->sourcePath = "@madhouse/slugger/assetbundles/slugger/dist";
+        $this->sourcePath = "@coryzibell/nanoslugs/assetbundles/nanoslugs/dist";
 
         // define the dependencies
         $this->depends = [
@@ -53,11 +53,11 @@ class SluggerAsset extends AssetBundle
         // define the relative path to CSS/JS files that should be registered with the page
         // when this asset bundle is registered
         $this->js = [
-            'js/Slugger.js',
+            'js/Nanoslugs.js',
         ];
 
         $this->css = [
-            'css/Slugger.css',
+            'css/Nanoslugs.css',
         ];
 
         parent::init();
