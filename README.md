@@ -2,7 +2,7 @@
 
 Nanoslugs is a Craft plugin that sets the slug of a new entry to be a [nanoid](https://github.com/ai/nanoid).
 
-This plugin copies heavily from Madhouses's [Slugger](https://github.com/madmadmad/nanoslugs) plugin that does something very similar using a different library. Thanks, Madhouse. :smiley:
+This plugin copies heavily from Madhouses's [Slugger](https://github.com/madmadmad/slugger) plugin that does something very similar using a different library. Thanks, Madhouse. :smiley:
 Their plugin copies heavily from Alec Ritson's [Slugged](https://github.com/alecritson) plugin for Craft 2. Thanks, Alec. :smiley: (The section override works in this version btw.)
 
 ## Requirements
@@ -47,9 +47,6 @@ The only sections that will be listed are editable sections (no singles obvs). I
 
 ## Using Nanoslugs
 Enable your section in the settings. Make a new entry. Save it. Voila... cryptographically secure slug.
-
-You can decode the hash using the `decode` template variable.
-
 
 ## Support, issues, feedback
 
