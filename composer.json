@@ -2,6 +2,7 @@
     "name": "coryzibell/nanoslugs",
     "description": "Generates a nanoid for new entry slugs.",
     "type": "craft-plugin",
+    "version": "1.0.0",
     "keywords": [
         "craft",
         "cms",

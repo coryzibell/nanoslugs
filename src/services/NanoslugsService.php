@@ -14,8 +14,6 @@ use coryzibell\nanoslugs\Nanoslugs;
 
 use Craft;
 use craft\base\Component;
-// use Hidehalo\Nanoid\Client;
-use Hidehalo\Nanoid\GeneratorInterface;
 
 /**
  * @author    Cory Zibell
@@ -34,7 +32,7 @@ class NanoslugsService extends Component
 		$settings = Craft::$app->plugins->getPlugin('nanoslugs')->getSettings();
 		$this->length = $settings['length'];
 		$this->alphabet = $settings['alphabet'];
-		$this->encoder = new \Hidehalo\Nanoid();
+		$this->encoder = new \Hidehalo\Nanoid\Client();
 	}
 
 
@@ -63,11 +61,11 @@ class NanoslugsService extends Component
 			$alphabet = $this->alphabet;
 		}
 
-		return $this->encoder->formatedId($alphabet = $alphabet, $size = $length);
+		return $this->encoder->formatedId($alphabet, (int)$length);
 	}
 
 	public function generate($length, $alphabet)
 	{
-		return $this->encoder->formatedId($alphabet = $alphabet, $size = $length);
+		return $this->encoder->formatedId($alphabet, (int)$length);
 	}
 }

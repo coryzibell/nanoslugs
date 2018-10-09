@@ -28,9 +28,8 @@ class Settings extends Model
     /**
      * @var string
      */
-    public $salt = 'Change me to something else';
     public $length = 8;
-    public $alphabet = 'abcdefghijklmnopqrstuvwxyz123456789';
+    public $alphabet = '0123456789abcdefghijklmnopqrstuvwxyz-';
     public $sections = array();
 
     // Public Methods
@@ -42,8 +41,6 @@ class Settings extends Model
     public function rules()
     {
         return [
-            ['salt', 'string'],
-            ['salt', 'default', 'value' => 'Change me to something else'],
             ['length', 'number'],
             ['length', 'default', 'value' => 8],
             ['alphabet', 'string'],
