@@ -106,7 +106,7 @@ class Nanoslugs extends Plugin
                 // We only want to generate the slug if its enabled in the nanoslugs settings
                 if($settings['enabled'])
                 {
-                    $slug = $this->NanoslugsService->encodeById($event->element->id, $settings);
+                    $slug = $this->NanoslugsService->encodeFromSettings($settings);
                     $event->element->slug = $slug;
                     Craft::$app->elements->saveElement($event->element);
 

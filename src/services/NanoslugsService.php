@@ -49,7 +49,7 @@ class NanoslugsService extends Component
 	 *
 	 * @return string|$encodedId the encoded ID
 	 */
-	public function encodeById($id, $settings)
+	public function encodeFromSettings($settings)
 	{
 		if ( $settings['length'] ){
 			$length = $settings['length'];
@@ -63,7 +63,6 @@ class NanoslugsService extends Component
 			$alphabet = $this->alphabet;
 		}
 
-		$encodedId = $this->encoder->encode($id);
 		return $this->encoder->formatedId($alphabet = $alphabet, $size = $length);
 	}
 
