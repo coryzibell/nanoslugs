@@ -1,18 +1,18 @@
 <?php
 /**
- * Slugger plugin for Craft CMS 3.x
+ * Nanoslugs plugin for Craft CMS 3.x
  *
- * Hashes the Id of an entry when it is saved and replaces the slug.
+ * Uses nanoid to generate a slug for new entries
  *
  * @link      https://madmadmad.com
- * @copyright Copyright (c) 2018 Madhouse
+ * @copyright Copyright (c) 2018 Cory Zibell
  */
 
-namespace madhouse\slugger;
+namespace coryzibell\nanoslugs;
 
-use madhouse\slugger\services\SluggerService as SluggerServiceService;
-use madhouse\slugger\variables\SluggerVariable;
-use madhouse\slugger\models\Settings;
+use coryzibell\nanoslugs\services\NanoslugsService as NanoslugsServiceService;
+use coryzibell\nanoslugs\variables\NanoslugsVariable;
+use coryzibell\nanoslugs\models\Settings;
 
 use Craft;
 use craft\base\Plugin;
@@ -24,21 +24,21 @@ use craft\web\twig\variables\CraftVariable;
 use yii\base\Event;
 
 /**
- * Class Slugger
+ * Class Nanoslugs
  *
- * @author    Madhouse
- * @package   Slugger
+ * @author    Cory Zibell
+ * @package   Nanoslugs
  * @since     1.0.0
  *
- * @property  SluggerServiceService $sluggerService
+ * @property  NanoslugsServiceService $nanoslugsService
  */
-class Slugger extends Plugin
+class Nanoslugs extends Plugin
 {
     // Static Properties
     // =========================================================================
 
     /**
-     * @var Slugger
+     * @var Nanoslugs
      */
     public static $plugin;
 
@@ -60,9 +60,9 @@ class Slugger extends Plugin
     {
         parent::init();
         self::$plugin = $this;
-                
+
         $this->setComponents([
-			'SluggerService' => services\SluggerService::class,
+			'NanoslugsService' => services\NanoslugsService::class,
 		]);
 
         Event::on(
@@ -71,7 +71,7 @@ class Slugger extends Plugin
             function (Event $event) {
                 /** @var CraftVariable $variable */
                 $variable = $event->sender;
-                $variable->set('slugger', SluggerVariable::class);
+                $variable->set('nanoslugs', NanoslugsVariable::class);
             }
         );
 
@@ -83,30 +83,30 @@ class Slugger extends Plugin
                 }
             }
         );
-        
+
        Event::on(Elements::class, Elements::EVENT_AFTER_SAVE_ELEMENT, function(Event $event){
-        
-            // Only hash if element is entry and new entry
+
+            // Only create new slug if element is entry and new entry
             if ( ($event->element instanceof \craft\elements\Entry) && $event->isNew )
             {
-            
+
                 // Get the settings
                 $pluginSettings = $this->getSettings();
                 // Get the section
                 $sectionId = $event->element->sectionId;
 
-                // Get the slugger settings
+                // Get the nanoslugs settings
                 if (isset($pluginSettings['sections'][$sectionId]))
                 {
                     $settings = $pluginSettings['sections'][$sectionId];
                 } else {
                     $settings['enabled'] = false;
                 }
-                
-                // We only want to generate the slug if its enabled in the slugger settings
+
+                // We only want to generate the slug if its enabled in the nanoslugs settings
                 if($settings['enabled'])
                 {
-                    $slug = $this->SluggerService->encodeById($event->element->id, $settings);
+                    $slug = $this->NanoslugsService->encodeById($event->element->id, $settings);
                     $event->element->slug = $slug;
                     Craft::$app->elements->saveElement($event->element);
 
@@ -116,7 +116,7 @@ class Slugger extends Plugin
 
         Craft::info(
             Craft::t(
-                'slugger',
+                'nanoslugs',
                 '{name} plugin loaded',
                 ['name' => $this->name]
             ),
@@ -141,7 +141,7 @@ class Slugger extends Plugin
     protected function settingsHtml(): string
     {
         return Craft::$app->view->renderTemplate(
-            'slugger/settings',
+            'nanoslugs/settings',
             [
                 'settings' => $this->getSettings()
             ]

@@ -1,1 +1,24 @@
-{"pluginName":"Slugger","pluginDescription":"Hashes the Id of an entry when it is saved and replaces the slug.","pluginVersion":"1.0.0","pluginAuthorName":"Madhouse","pluginVendorName":"madhouse","pluginAuthorUrl":"https://madmadmad.com","pluginAuthorGithub":"madmadmad","codeComments":"","pluginComponents":["models","services","settings","variables"],"consolecommandName":"","controllerName":"","cpsectionName":"","elementName":"","fieldName":"","modelName":"","purchasableName":"","recordName":"","serviceName":"","taskName":"","utilityName":"","widgetName":"","apiVersion":"api_version_3_0"}
+{
+  "pluginName": "Nanoid",
+  "pluginDescription": "Generates a nanoid for new entry slugs",
+  "pluginVersion": "1.0.0",
+  "pluginAuthorName": "Cory Zibell",
+  "pluginVendorName": "coryzibell",
+  "pluginAuthorUrl": "https://coryzibell.com",
+  "pluginAuthorGithub": "coryzibell",
+  "codeComments": "",
+  "pluginComponents": ["models", "services", "settings", "variables"],
+  "consolecommandName": "",
+  "controllerName": "",
+  "cpsectionName": "",
+  "elementName": "",
+  "fieldName": "",
+  "modelName": "",
+  "purchasableName": "",
+  "recordName": "",
+  "serviceName": "",
+  "taskName": "",
+  "utilityName": "",
+  "widgetName": "",
+  "apiVersion": "api_version_3_0"
+}
