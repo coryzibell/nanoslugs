@@ -40,7 +40,7 @@ Default: `8`
 ***Alphabet***
 The characters to use when generating the slug.
 
-Default: `0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz~-`
+Default: `0123456789abcdefghijklmnopqrstuvwxyz-`
 
 ***Sections***
 The only sections that will be listed are editable sections (no singles obvs). If you add a length to a section this will override the default set above. A section must be enabled for the hashing to happen, regardless of whether you add a length override or not.
