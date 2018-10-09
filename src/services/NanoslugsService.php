@@ -15,7 +15,7 @@ use coryzibell\nanoslugs\Nanoslugs;
 use Craft;
 use craft\base\Component;
 // use Hidehalo\Nanoid\Client;
-// use Hidehalo\Nanoid\GeneratorInterface;
+use Hidehalo\Nanoid\GeneratorInterface;
 
 /**
  * @author    Cory Zibell
@@ -32,10 +32,8 @@ class NanoslugsService extends Component
 	public function __construct()
 	{
 		$settings = Craft::$app->plugins->getPlugin('nanoslugs')->getSettings();
-
 		$this->length = $settings['length'];
 		$this->alphabet = $settings['alphabet'];
-
 		$this->encoder = new \Hidehalo\Nanoid();
 	}
 
@@ -53,21 +51,24 @@ class NanoslugsService extends Component
 	 */
 	public function encodeById($id, $settings)
 	{
-
-		if ( $settings['length'] )
-		{
+		if ( $settings['length'] ){
 			$length = $settings['length'];
-			$this->encoder = new \Hashids\Hashids($this->salt, $length, $this->alphabet);
+		} else {
+			$length = $this->length;
 		}
+
+		if ( $settings['alphabet'] ) {
+			$alphabet = $settings['alphabet'];
+		} else {
+			$alphabet = $this->alphabet;
+		}
+
 		$encodedId = $this->encoder->encode($id);
-		return $encodedId;
+		return $this->encoder->formatedId($alphabet = $alphabet, $size = $length);
 	}
 
 	public function generate($length, $alphabet)
 	{
-		$length = strlen($hash);
-		$this->encoder = new \Hashids\Hashids($this->salt, $length, $this->alphabet);
-		$id = $this->encoder->decode($hash);
-		return reset($id);
+		return $this->encoder->formatedId($alphabet = $alphabet, $size = $length);
 	}
 }

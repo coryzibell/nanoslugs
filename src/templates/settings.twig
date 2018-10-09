@@ -47,6 +47,7 @@
 	<thead>
 		<th>Name</th>
 		<th>Length override</th>
+		<th>Alphabet override</th>
 		<th>Enable</th>
 	</thead>
 
@@ -59,6 +60,13 @@
 						value: null,
 						name: 'sections['~ section.id ~ '][length]',
 						value: (settings.sections[section.id] is defined and settings.sections[section.id].length ? settings.sections[section.id].length : null)
+					}) }}
+				</td>
+				<td>
+					{{ forms.text({
+						value: null,
+						name: 'sections['~ section.id ~ '][alphabet]',
+						value: (settings.sections[section.id] is defined and settings.sections[section.id].alphabet ? settings.sections[section.id].alphabet : null)
 					}) }}
 				</td>
 				<td>
