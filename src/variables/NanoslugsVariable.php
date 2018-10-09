@@ -45,8 +45,8 @@ class NanoslugsVariable
      * @param null $optional
      * @return string
      */
-    public function decode($hash)
+    public function generate($hash)
     {
-		return Nanoslugs::$plugin->NanoslugsService->decode($hash);
+		  return Nanoslugs::$plugin->NanoslugsService->generate($length, $alphabet);
     }
 }

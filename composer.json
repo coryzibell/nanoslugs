@@ -1,6 +1,6 @@
 {
     "name": "coryzibell/nanoslugs",
-    "description": "Hashes the Id of an entry when it is saved and replaces the slug.",
+    "description": "Generates a nanoid for new entry slugs.",
     "type": "craft-plugin",
     "keywords": [
         "craft",
@@ -18,7 +18,7 @@
     ],
     "require": {
         "craftcms/cms": "^3.0.0-RC1",
-        "hashids/hashids": "^2.0"
+        "hidehalo/nanoid-php": "^1.1.4"
     },
     "autoload": {
         "psr-4": {

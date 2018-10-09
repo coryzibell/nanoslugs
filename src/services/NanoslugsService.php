@@ -14,6 +14,8 @@ use coryzibell\nanoslugs\Nanoslugs;
 
 use Craft;
 use craft\base\Component;
+// use Hidehalo\Nanoid\Client;
+// use Hidehalo\Nanoid\GeneratorInterface;
 
 /**
  * @author    Cory Zibell
@@ -25,7 +27,6 @@ class NanoslugsService extends Component
 
 	protected $length;
 	protected $alphabet;
-	protected $salt;
 	protected $encoder;
 
 	public function __construct()
@@ -33,10 +34,9 @@ class NanoslugsService extends Component
 		$settings = Craft::$app->plugins->getPlugin('nanoslugs')->getSettings();
 
 		$this->length = $settings['length'];
-		$this->salt = $settings['salt'];
 		$this->alphabet = $settings['alphabet'];
 
-		$this->encoder = new \Hashids\Hashids($this->salt, $this->length, $this->alphabet);
+		$this->encoder = new \Hidehalo\Nanoid();
 	}
 
 
@@ -63,7 +63,7 @@ class NanoslugsService extends Component
 		return $encodedId;
 	}
 
-	public function decode($hash)
+	public function generate($length, $alphabet)
 	{
 		$length = strlen($hash);
 		$this->encoder = new \Hashids\Hashids($this->salt, $length, $this->alphabet);

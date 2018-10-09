@@ -20,19 +20,8 @@
 {% do view.registerAssetBundle("coryzibell\\nanoslugs\\assetbundles\\nanoslugs\\NanoslugsAsset") %}
 
 {{ forms.textField({
-    label: "Hash salt"|t,
-    instructions: "Enter salt to be applied when creating hash"|t,
-    id: 'salt',
-    class: 'salt',
-    name: 'salt',
-    required: true,
-    value: settings.salt,
-    errors: settings ? settings.errors('salt') : null
-}) }}
-
-{{ forms.textField({
     label: "Default length"|t,
-    instructions: "Enter default length of the hash"|t,
+    instructions: "Enter default length of the id"|t,
     id: 'length',
     class: 'length',
     required: true,
@@ -43,7 +32,7 @@
 
 {{ forms.textField({
     label: "Alphabet"|t,
-    instructions: "Enter the characters to use when hashing"|t,
+    instructions: "Enter the characters to use when generating a new ID"|t,
     id: 'alphabet',
     class: 'alphabet',
     required: true,
