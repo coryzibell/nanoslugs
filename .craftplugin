@@ -1,7 +1,7 @@
 {
   "pluginName": "Nanoslugs",
   "pluginDescription": "Generates a nanoid for new entry slugs",
-  "pluginVersion": "1.0.0",
+  "pluginVersion": "1.0.1",
   "pluginAuthorName": "Cory Zibell",
   "pluginVendorName": "coryzibell",
   "pluginAuthorUrl": "https://coryzibell.com",
