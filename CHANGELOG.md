@@ -1,4 +1,4 @@
-# Slugger Changelog
+# Release Notes for Nanoslugs
 
 All notable changes to this project will be documented in this file.
 
