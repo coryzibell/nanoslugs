@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2018 Cory Zibell
  */
 
-namespace coryzibell\nanoslugs\assetbundles\Nanoslugs;
+namespace coryzibell\nanoslugs\assetbundles\nanoslugs;
 
 use Craft;
 use craft\web\AssetBundle;
