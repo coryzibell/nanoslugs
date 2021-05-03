@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.0.4 - 2021-5-3
+### Changed
+- Fixing composer 2 compatibility (thanks @epocsquadron)
 ## 1.0.3 - 2018-10-9
 ### Changed
 - Normalizing version for composer
